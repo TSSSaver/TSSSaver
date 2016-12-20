@@ -42,6 +42,11 @@ Change theme:<br>
 1. Remove rename style.css to style-white.css<br>
 2. Rename style-black.css to style.css<br>
 
+(optional)
+Save to dropbox
+1. Get an APP Key from dropbox.<br>
+2. Replace "YOUR_APP_KEY" in /index/footer.html with your key
+
 #How to get the auto index stuff
 I used nginx with fancyindex module for that. Here is the config for it. 
 ```

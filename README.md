@@ -30,16 +30,16 @@ Preview: https://tsssaver.1conan.com
 4. Download https://git.io/v1bM2 then place the extracted binary in your web root.
 
 (optional)
-Set cron to run cron.php on your preferred interval.
+Set cron to run cron.php on your preferred interval.<br>
 For every 12am
 ```
 0 0 * * * cd /path/to/your/web/root && php cron.php
 ```
 
 (optional)
-Change theme:
-1. Remove rename style.css to style-black.css
-2. Rename style-white.css to style.css
+Change theme:<br>
+1. Remove rename style.css to style-black.css<br>
+2. Rename style-white.css to style.css<br>
 
 #How to get the auto index stuff
 I used nginx for that. Here is the config for it. 

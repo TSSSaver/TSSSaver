@@ -1,0 +1,49 @@
+		<br>
+		<a href="#" id="dlZIP">Download ZIP</a>&nbsp;
+		<div id="saveToDrive" class="g-savetodrive" data-src="" data-filename="" data-sitename="TSS Saver - Conan"></div>&nbsp;
+		<span id="saveToDropbox"></span><br><br>
+		
+		<a href="https://tsssaver.1conan.com">Back home :)</a>
+		<script>
+			document.getElementById('list').insertAdjacentHTML('beforeBegin', '</h1>');
+			document.getElementById('crap').remove();
+			//Hacky way to remove the big "Index of" text
+			
+			var url = "https://tsssaver.1conan.com/";
+			function genRand() {
+				var z = "";
+				var x = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+				for (var i = 0; i < 5; i++) z += x.charAt(Math.floor(Math.random() * x.length));
+				return z;
+			}
+
+
+			var regxPattern = /.*\/shsh\/([0-9]{1,9999})\/.*/g;
+
+			var ecid = regxPattern.exec(window.location.href)[1];
+
+			var dlLink = url + "shsh/download.php?ecid=" + ecid;
+
+			document.getElementById("dlZIP").href = dlLink;
+
+			var saveToDrive = document.getElementById("saveToDrive");
+			saveToDrive.setAttribute('data-src', dlLink);
+			saveToDrive.setAttribute('data-filename', w + '-blobs-all-' + genRand() + '.zip');
+		</script>
+		<script src="https://apis.google.com/js/platform.js" defer></script>
+		<script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="belyknq8dlq6a15"></script>
+		<script>
+				//This is here because I have no idea on how to set a 
+				//URL/Button for dropbox without loading their JS first
+				var dropboxOptions = {
+					success: function() {
+						alert("Success! Files saved to your Dropbox.");
+					},
+					error: function(errorMessage) {
+						alert(errorMessage);
+					}
+				};
+				document.getElementById('saveToDropbox').appendChild(Dropbox.createSaveButton(dlLink, ecid + '-blobs-all-' + genRand() + '.zip', dropboxOptions));
+		</script>
+	</body>
+</html>

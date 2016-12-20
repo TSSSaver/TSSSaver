@@ -1,0 +1,192 @@
+/*
+	* https://www.reddit.com/u/MareddySaiKiran
+*/
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+mark,
+menu,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+q,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+body {
+    background: #000;
+    font-family: 'Open Sans', sans-serif;
+}
+.box {
+    width: 500px;
+    height: auto;
+    background: #101010;
+    margin: 10px auto;
+    border-radius: 4px;
+    transition: .2s ease-in;
+    padding: 20px;
+}
+input,
+select {
+    background: #1A1A1A;
+}
+.note,
+p {
+    padding: 5px;
+}
+p {
+    font-size: 12px;
+    color: #656565;
+}
+.note {
+    font-weight: 600;
+    color: #FFF!important;
+}
+.title {
+    padding: 5px 5px 0;
+    font-size: 28px;
+    font-weight: 100;
+    color: #FFF;
+}
+.author,
+input {
+    font-size: 12px;
+}
+.author {
+    padding: 0 5px 5px;
+    text-decoration: none!important;
+    color: #656565;
+}
+.button,
+input {
+    color: #FFF!important;
+}
+input {
+    width: 100%;
+    border: none!important;
+    padding: 7px;
+    border-radius: 2px;
+}
+select {
+    padding: 5px;
+    border: none!important;
+    border-radius: 2px;
+}
+.button {
+    background: #000!important;
+    padding: 10px!important;
+    border-radius: 2px!important;
+    cursor: pointer!important;
+    border: 0!important;
+    -webkit-appearance: none;
+}
+.rc-anchor-light {
+    background: #101010;
+    color: #fff;
+}
+@media all and (max-width: 768px),
+only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px),
+only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px),
+only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px),
+only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px),
+only screen and (min-resolution: 192dpi) and (max-width: 1024px),
+only screen and (min-resolution: 2dppx) and (max-width: 1024px),
+only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .box,
+    body {
+        width: 100%;
+    }
+    body {
+        padding: 10px;
+    }
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+option {
+    color: white;
+}
+select {
+    color: white;
+}

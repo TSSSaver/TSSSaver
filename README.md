@@ -25,9 +25,10 @@ Preview: https://tsssaver.1conan.com
 
 #Installation
 1. Import the sql file<br>
-2. Modify inc/config.php to your URL + database config<br>
-3. Modify index/footer.html to your URL<br>
-4. Download https://git.io/v1bM2 then place the extracted binary in your web root.
+2. Modify inc/config.sample.php to your URL + database config<br>
+3. Rename inc/config.sample.php to inc/config.php<br>
+4. Modify index/footer.html to your URL<br>
+5. Download https://git.io/v1bM2 then place the extracted binary in your web root.
 
 (optional)
 Set cron to run cron.php on your preferred interval.<br>

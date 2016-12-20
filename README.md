@@ -43,7 +43,7 @@ Change theme:<br>
 2. Rename style-black.css to style.css<br>
 
 #How to get the auto index stuff
-I used nginx for that. Here is the config for it. 
+I used nginx with fancyindex module for that. Here is the config for it. 
 ```
 location /shsh {
 	index index.php;

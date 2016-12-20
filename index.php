@@ -24,10 +24,18 @@
 				err("Captcha Error!");
 			}
 		}
-		if(ctype_xdigit($_POST['ECID']) && is_numeric(hexdec($_POST['ECID']))) {
-			$deviceECID = hexdec($_POST['ECID']);
-		} else {
-			err("Invalid ECID!");
+		if($_POST['ECIDType'] = 0) {
+			if(ctype_xdigit($_POST['ECID']) && is_numeric(hexdec($_POST['ECID']))) {
+				$deviceECID = hexdec($_POST['ECID']);
+			} else {
+				err("Invalid ECID!");
+			}
+		} else ($_POST['ECIDType'] = 1) {
+			if(is_numeric($_POST['ECID'])) {
+				$deviceECID = $_POST['ECID'];
+			} else {
+				err("Invalid ECID!");
+			}
 		}
 		
 		// TODO: Change to let users just select the model
@@ -109,8 +117,12 @@
 			<p>&#8226; Find device identifiers here: <a href="https://www.theiphonewiki.com/wiki/Models" target="_blank">The iPhone Wiki:Models</a></p>
 		</div>
 		<div class="box">
-			<h1 class="note">ECID : </h1>
 			<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+			<h1 class="note">ECID : </h1>
+				<select name="ECIDType">
+					<option value="0">Hex</option>
+					<option value="1">Dec</option>
+				</select>
 				<input type="text" name="ECID" placeholder="Type ECID Here..."><br>
 				<br>
 				<h1 class="note">Identifier : </h1>

@@ -3,6 +3,8 @@ An online interface for TSSChecker.
 <br>
 Pretty crappy code as of now<br><br>
 
+Preview: https://tsssaver.1conan.com
+
 #Features
 - Automated
 - Download to ZIP
@@ -11,6 +13,7 @@ Pretty crappy code as of now<br><br>
 - Instant blob saving (For new submissions)
 - Google Recaptcha
 - No frameworks for speedy loading
+- Two themes (by <a href="https://www.reddit.com/user/MareddySaiKiran">/u/MareddySaiKiran</a>)
 
 #Requirements
 - MySQL/MariaDB
@@ -32,6 +35,11 @@ For every 12am
 ```
 0 0 * * * cd /path/to/your/web/root && php cron.php
 ```
+
+(optional)
+Change theme:
+1. Remove rename style.css to style-black.css
+2. Rename style-white.css to style.css
 
 #How to get the auto index stuff
 I used nginx for that. Here is the config for it. 

@@ -38,8 +38,8 @@ For every 12am
 
 (optional)
 Change theme:<br>
-1. Remove rename style.css to style-black.css<br>
-2. Rename style-white.css to style.css<br>
+1. Remove rename style.css to style-white.css<br>
+2. Rename style-black.css to style.css<br>
 
 #How to get the auto index stuff
 I used nginx for that. Here is the config for it. 

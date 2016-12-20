@@ -31,6 +31,7 @@ Set cron to run cron.php on your preferred interval.
 For every 12am
 ```
 0 0 * * * cd /path/to/your/web/root && php cron.php
+```
 
 #How to get the auto index stuff
 I used nginx for that. Here is the config for it. 

@@ -10,6 +10,7 @@ Pretty crappy code as of now<br><br>
 - Save to Dropbox
 - Instant blob saving (For new submissions)
 - Google Recaptcha
+- No frameworks for speedy loading
 
 #Requirements
 - MySQL/MariaDB

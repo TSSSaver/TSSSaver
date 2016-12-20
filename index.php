@@ -136,6 +136,7 @@
 			<button class="button" id="showlink" style="width:100%">Get your blobs</a>
 		</div>
 		<p style="text-align:center;">Copyright &copy; 1Conan, 2016</p>
+		<p style="text-align:center;"><a href="https://github.com/1Conan/TSSSaver">TSS Savver</a> is licensed under MIT</p>
 		<script>
 				var serverURL = <?php echo $serverURL; ?>;
 				function getJSON(url) {

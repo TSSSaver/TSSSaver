@@ -1,11 +1,10 @@
-.note,
-input {
-    color: #000!important
-}
+/*
+	* https://www.reddit.com/u/MareddySaiKiran
+*/
 * {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 a,
 abbr,
@@ -92,64 +91,75 @@ video {
     padding: 0;
     border: 0;
     font: inherit;
-    vertical-align: baseline
+    vertical-align: baseline;
 }
 body {
-    background: #EEE;
+    background: #000;
     font-family: 'Open Sans', sans-serif;
-    margin-top: 20px
 }
 .box {
     width: 500px;
     height: auto;
-    background: #FFF;
-    margin: 5px auto 0;
+    background: #101010;
+    margin: 10px auto;
     border-radius: 4px;
-    box-shadow: 0 1px 1px 0 #c3c3c3!important;
-    -webkit-box-shadow: 0 1px 1px 0 #c3c3c3!important;
     transition: .2s ease-in;
-    padding: 20px
+    padding: 20px;
+}
+input,
+select {
+    background: #1A1A1A;
 }
 .note,
 p {
-    padding: 5px
-}
-.banner {
-    height: 100px
+    padding: 5px;
 }
 p {
     font-size: 12px;
-    color: #454545
+    color: #656565;
 }
 .note {
-    font-weight: 600
+    font-weight: 600;
+    color: #FFF!important;
 }
 .title {
     padding: 5px 5px 0;
     font-size: 28px;
-    font-weight: 100
+    font-weight: 100;
+    color: #FFF;
+}
+.author,
+input {
+    font-size: 12px;
 }
 .author {
-    padding: 0 5px 5px
+    padding: 0 5px 5px;
+    text-decoration: none!important;
+    color: #656565;
 }
+.button,
 input {
-    border: 2px solid;
-    background: #fff;
-    padding: 5px;
-    font-size: 12px;
-    border-radius: 2px
+    color: #FFF!important;
+    border: none!important;
+    padding: 7px;
+    border-radius: 2px;
 }
 select {
     padding: 5px;
-    border: 2px solid #000
+    border: none!important;
+    border-radius: 2px;
 }
 .button {
     background: #000!important;
-    color: #FFF!important;
     padding: 10px!important;
     border-radius: 2px!important;
     cursor: pointer!important;
-    border: 0!important
+    border: 0!important;
+    -webkit-appearance: none;
+}
+.rc-anchor-light {
+    background: #101010;
+    color: #fff;
 }
 @media all and (max-width: 768px),
 only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px),
@@ -159,15 +169,22 @@ only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px),
 only screen and (min-resolution: 192dpi) and (max-width: 1024px),
 only screen and (min-resolution: 2dppx) and (max-width: 1024px),
 only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .box,
     body {
-        width: 100%
+        width: 100%;
     }
-    .box {
-        width: 95%
+    body {
+        padding: 10px;
     }
 }
 a {
     color: white;
     text-decoration: none;
 	font-weight: 600;
+}
+option {
+    color: white;
+}
+select {
+    color: white;
 }

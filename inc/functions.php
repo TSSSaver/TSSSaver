@@ -5,9 +5,8 @@
 	* License: MIT
 	*/
 	
-	function saveBlobs($deviceInfo) {
-		$countApnonce = count($apnonce); 
-		
+	function saveBlobs($deviceInfo, $apnonce, $signedVersionsURL) {
+		$countApnonce = count($apnonce);  
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

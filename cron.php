@@ -29,7 +29,7 @@
 			'charset' => 'utf8'
 		]);
 	
-	$savedDevices = $database->query('SELECT * FROM '.$database['table'])->fetchAll();
+	$savedDevices = $database->query('SELECT * FROM '.$db['table'])->fetchAll();
 	unset($database);
 	
 	$countSavedDevices = count($savedDevices);
@@ -64,7 +64,7 @@
 			$cmd .= " -d ".escapeshellarg($deviceInfo['deviceIdentifier']);
 			$cmd .= " -e ".escapeshellarg($deviceInfo['deviceECID']);
 			$cmd .= " -i ".escapeshellarg($currentFirmware['version']);
-			$cmd .= " --buildid ".escapeshellarg($currentFirmware['build']);
+			$cmd .= " --buildid ".escapeshellarg($currentFirmware['buildid']);
 			$cmd .= " -s ";
 			$cmd .= "--save-path ".$savePath.'/noapnonce';
 			shell_exec($cmd);
@@ -76,11 +76,11 @@
 					mkdir($savePath.'/apnonce-'.$currentApnonce, 0777, true);
 				}
 				
-				$cmd = "./tsschecker "
+				$cmd = "./tsschecker ";
 				$cmd .= "-d ".escapeshellarg($deviceInfo['deviceIdentifier']);
 				$cmd .= " -e ".escapeshellarg($deviceInfo['deviceECID']);
 				$cmd .= " -i ".escapeshellarg($currentFirmware['version']);
-				$cmd .= " --buildid ".escapeshellarg($currentFirmware['build']);
+				$cmd .= " --buildid ".escapeshellarg($currentFirmware['buildid']);
 				$cmd .= " -s";
 				$cmd .= " --apnonce ".$currentApnonce;
 				$cmd .= " --save-path ".$savePath.'/apnonce-'.$currentApnonce.'';

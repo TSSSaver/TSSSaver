@@ -12,17 +12,18 @@
 	
 	
 	if(isset($_POST['submit'])) {
-		if (!isset($_POST['g-recaptcha-response'])) {
-			err("Captcha Error!");
+		if($reCaptcha['enabled'] == true) {
+			if (!isset($_POST['g-recaptcha-response'])) {
+				err("Captcha Error!");
+			}
+			
+			$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$reCaptcha['privateKey']."&response=".$_POST['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
+			$response2 = json_decode($response, true);
+			
+			if($response2['success'] == false){
+				err("Captcha Error!");
+			}
 		}
-		
-		$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LcMJQ8UAAAAACc3xkO1cdLSi5QM2x9j7lYiv0u_&response=".$_POST['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
-		$response2 = json_decode($response, true);
-		
-		if($response2['success'] == false){
-			err("Captcha Error!");
-		}
-		
 		if(ctype_xdigit($_POST['ECID']) && is_numeric(hexdec($_POST['ECID']))) {
 			$deviceECID = hexdec($_POST['ECID']);
 		} else {
@@ -121,7 +122,11 @@
 				</select>
 				<input type="text" name="identifier" placeholder="Ex. 8,1" style="width:50px;padding:7px;">
 				<br><br>
-				<div class="g-recaptcha" data-sitekey="6LcMJQ8UAAAAADSPVJnjFKXyXNd8uWJNthLicB51"></div><br>
+				<?php 
+					if($reCaptcha['enabled'] == true) {
+						echo '<div class="g-recaptcha" data-sitekey="'.$reCaptcha['publicKey'].'"></div><br>';
+					}
+				?>
 				<input class="button" type="submit" value="Submit" name="submit">
 			</form>  
 		</div>
@@ -152,6 +157,10 @@
 					window.location = serverURL + "shsh/" + ecid.dec
 				};
 		</script>
-		<script src='https://www.google.com/recaptcha/api.js'></script>
+		<?php 
+			if($reCaptcha['enabled'] == true) {
+				echo "<script src='https://www.google.com/recaptcha/api.js' defer></script>";
+			}
+		?>
 	</body>
 </html>

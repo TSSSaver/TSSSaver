@@ -7,12 +7,15 @@
 	$serverURL = "https://tsssaver.1conan.com/";
 	$savedSHSHURL = $serverURL."shsh/";
 	
+	$reCaptcha['enabled'] = false;
+	$reCaptcha['privateKey'] = "";
+	$reCaptcha['publicKey'] = "";
+	
 	$db['server'] = "localhost";
 	$db['name'] = "tsssaver";
 	$db['user'] = "user";
 	$db['password'] = "password";
 	$db['table'] = "devices";
-	
 	
 	$signedVersionsURL = "https://api.ipsw.me/v2.1/firmwares.json/condensed"; 
 	

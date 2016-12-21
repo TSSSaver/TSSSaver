@@ -12,19 +12,19 @@ Preview: https://tsssaver.1conan.com
 - Save to Dropbox
 - Instant blob saving (For new submissions)
 - Google Recaptcha
-- No frameworks for speedy loading
+- No web frameworks for speedy loading
 - Two themes (by <a href="https://www.reddit.com/user/MareddySaiKiran">/u/MareddySaiKiran</a>)
 
 #Requirements
 - MySQL/MariaDB
-- PHP 5.5+
+- PHP 5.5+ (7+ Recommended)
 - PHP-MySQLi
 - Cron (Optional)
 - TSSChecker
-- Linux
+- Linux (Debian or debian derivatives)
 
 #Installation
-1. Import the sql file<br>
+1. Import devices.sql file using phpMyAdmin or the command line<br>
 2. Modify inc/config.sample.php to your URL + database config<br>
 3. Rename inc/config.sample.php to inc/config.php<br>
 4. Modify index/footer.html to your URL<br>

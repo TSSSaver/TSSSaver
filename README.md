@@ -1,7 +1,7 @@
 # TSSSaver
-An online interface for TSSChecker.
-<br>
+An online interface/frontend for TSSChecker.<br>
 Pretty crappy code as of now<br><br>
+Licensed under MIT License. Yes, yes, it is licensed under MIT License.
 
 Preview: https://tsssaver.1conan.com
 

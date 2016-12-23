@@ -38,7 +38,6 @@
 			}
 		}
 		
-		// TODO: Change to let users just select the model
 		if($_POST['deviceType'] == "iPhone") {
 			$deviceType = "iPhone";
 		} else if($_POST['deviceType'] == "iPod") {
@@ -96,6 +95,55 @@
 		saveBlobs($deviceInfo, $apnonce, $signedVersionsURL);
 		
 		exit("<center>Done saving ECID!<br>SHSH blobs will be saved in <a href='".$url."'>".$url."</a></center>");
+	}
+	
+	if(isset($_POST['delete'])) {
+		if($reCaptcha['enabled'] == true) {
+			if (!isset($_POST['g-recaptcha-response'])) {
+				err("Captcha Error!");
+			}
+			
+			$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$reCaptcha['privateKey']."&response=".$_POST['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
+			$response2 = json_decode($response, true);
+			
+			if($response2['success'] == false){
+				err("Captcha Error!");
+			}
+		}
+		if($_POST['ECIDType'] == 0) {
+			if(ctype_xdigit($_POST['ECID']) && is_numeric(hexdec($_POST['ECID']))) {
+				$deviceECID = hexdec($_POST['ECID']);
+			} else {
+				err("Invalid ECID! (HEX)");
+			}
+		} else if($_POST['ECIDType'] == 1) {
+			if(is_numeric($_POST['ECID'])) {
+				$deviceECID = $_POST['ECID'];
+			} else {
+				err("Invalid ECID! (DEC)");
+			}
+		}
+		$database = new medoo([
+				'database_type' => 'mysql',
+				'database_name' => $db['name'],
+				'server' => $db['server'],
+				'username' => $db['user'],
+				'password' => $db['password'],
+				'charset' => 'utf8'
+			]);
+		
+		$result = $database->select($db['table'], 'deviceECID', [
+				'deviceECID' => $deviceECID
+			]);
+		if(count($result) == 0) {
+			err("<center>ECID Not found!</center>");
+		}
+		$database->delete($db['table'], [
+				"AND" => [
+					"deviceECID" => $deviceECID
+				]
+			]);
+		err('Sucessfully deleted ECID!');
 	}
 ?>
 <!DOCTYPE html>
@@ -164,7 +212,7 @@
 				<br><br>
 				<?php 
 					if($reCaptcha['enabled'] == true) {
-						echo '<div class="g-recaptcha" data-sitekey="'.$reCaptcha['publicKey'].'"></div><br>';
+						echo '<div id="recaptcha1"></div><br>';
 					}
 				?>
 				<input class="button" type="submit" value="Submit" name="submit">
@@ -178,6 +226,22 @@
             </select>
 			<input type="text" placeholder="Type ECID Here..." id="inp_ecid" style="width:85%"><br><br>
 			<button class="button" id="showlink" style="width:100%">Get your blobs</a>
+		</div>
+		<div class="box">
+			<h1 class="note">Wrong model selected?</h1>
+			<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" autocomplete="off">
+				<select id="ECIDType" style="width:30%;float:left;height:29px">
+							<option value="0">Hex</option>
+							<option value="1">Dec</option>
+				</select>
+				<input type="text" placeholder="Type ECID Here..." name="ECID" style="width:70%"><br><br>
+				<?php 
+						if($reCaptcha['enabled'] == true) {
+							echo '<div id="recaptcha2"></div><br>';
+						}
+				?>
+				<input class="button" type="submit" name="delete" value="Delete ECID!" style="width:100%">
+			</form>
 		</div>
 		<p style="text-align:center;">Copyright &copy; 1Conan, 2016</p>
 		<p style="text-align:center;"><a href="https://github.com/1Conan/TSSSaver">TSS Savver</a> is licensed under MIT</p>
@@ -229,7 +293,23 @@
 		</script>
 		<?php 
 			if($reCaptcha['enabled'] == true) {
-				echo "<script src='https://www.google.com/recaptcha/api.js' defer></script>";
+				?>
+					<script src="https://www.google.com/recaptcha/api.js?onload=myCallBack&render=explicit" defer></script>
+					<script>
+						var recaptcha1;
+						var recaptcha2;
+						var myCallBack = function() {
+							recaptcha1 = grecaptcha.render('recaptcha1', {
+								'sitekey' : '<?php echo $reCaptcha['publicKey']; ?>',
+								'theme' : 'light'
+							});
+							recaptcha2 = grecaptcha.render('recaptcha2', {
+								'sitekey' : '<?php echo $reCaptcha['publicKey']; ?>',
+								'theme' : 'light'
+							});
+						};
+					</script>
+				<?php
 			}
 		?>
 	</body>

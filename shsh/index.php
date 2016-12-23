@@ -1,4 +1,4 @@
 <?php
-	header('Location: https://tsssaver.1conan.com');
+	header('Location: /');
 ?>
 Be careful little eyes.

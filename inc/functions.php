@@ -70,7 +70,7 @@
 		$html = "<!DOCTYPE html>";
 		$html .= "<html>";
 		$html .= "<head>";
-		$html .= "<title> Error - TSS Saver - Conan</title>";
+		$html .= "<title> Error - TSS Saver</title>";
 		$html .= "<meta http-equiv='refresh' content='5'>";
 		$html .= "<meta name='viewport' content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no' />";
 		$html .= "<link rel='stylesheet' href='style.css'>";

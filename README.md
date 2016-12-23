@@ -24,12 +24,17 @@ Preview: https://tsssaver.1conan.com
 - Linux (Debian or debian derivatives)
 
 #Installation
-1. Import devices.sql file using phpMyAdmin or the command line<br>
-2. Modify inc/config.sample.php to your URL + database config<br>
-3. Rename inc/config.sample.php to inc/config.php<br>
-4. Modify index/footer.html to your URL<br>
-5. Download https://git.io/v1bM2 then place the extracted binary in your web root.
-
+1. Download all the files in your web root.<br>
+2. Import devices.sql to MySQL/MariaDB. (phpMyAdmin or CLI)
+3. Modify inc/config.sample.php to your preferences<br>
+4. Rename inc/config.sample.php to inc/config.php<br>
+5. Modify index/footer.html according to your preferences.<br>
+6. Make bin/ directory.<br>
+7. Download https://git.io/v1bM2 and uncompress to bin/ directory.<br>
+8. Download img4tool and uncompress. (http://api.tihmstar.net/builds/img4tool/img4tool-latest.zip)<br>
+9. Rename img4tool_linux to img4tool then move to bin/<br>
+10. Done :) <br>
+<br>
 (optional)
 Set cron to run cron.php on your preferred interval.<br>
 For every 12am

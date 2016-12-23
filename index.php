@@ -149,22 +149,20 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>TSS Saver - Conan</title>
+		<title>TSS Saver</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<link rel="stylesheet" href="style.css">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800" rel="stylesheet">
 	</head>
 	<body>
 		<div class="box">
-			<h1 class="title"><span style="font-weight:600;">SHSH2</span> Blobs Saver</h1>
+			<h1 class="title"><span style="font-weight:600;">TSS Saver</span> - SHSH2 Blobs Saver</h1>
 			<p class="author">by <a href="https://www.reddit.com/user/1Conan/">/u/1Conan</a></p>
 			<p class="author">Theme by <a href="https://www.reddit.com/user/MareddySaiKiran">/u/MareddySaiKiran</a></p>
 			</div>
 		<div class="box">
 			<h1 class="note">Note : </h1>
-			<p>&#8226; Please use HEXADECIMAL ECIDs only.</p>
 			<p>&#8226; Reddit thread + tutorial: <a href="https://redd.it/5ivapw" target="_blank">Click Here</a></p>
-			<p>&#8226; Find device identifiers here: <a href="https://www.theiphonewiki.com/wiki/Models" target="_blank">The iPhone Wiki:Models</a></p>
 		</div>
 		<div class="box">
 			<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">

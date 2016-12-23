@@ -42,7 +42,7 @@
 			$cmd .= " -i ".escapeshellarg($currentFirmware['version']);
 			$cmd .= " --buildid ".escapeshellarg($currentFirmware['buildid']);
 			$cmd .= " --save-path ".$savePath.'/noapnonce';
-			$cmd .= " -s > /dev/null &";
+			$cmd .= " -s";
 			shell_exec($cmd);
 			
 			for($b = 0; $b < $countApnonce; $b++) {
@@ -59,7 +59,6 @@
 				$cmd .= " --apnonce ".$currentApnonce;
 				$cmd .= " --save-path ".$savePath.'/apnonce-'.$currentApnonce;
 				$cmd .= " -s ";
-				$cmd .= " > /dev/null &";
 				
 				shell_exec($cmd);
 			}

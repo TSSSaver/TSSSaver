@@ -163,6 +163,7 @@
 		<div class="box">
 			<h1 class="note">Note : </h1>
 			<p>&#8226; Reddit thread + tutorial: <a href="https://redd.it/5ivapw" target="_blank">Click Here</a></p>
+			<p>&#8226; Verify blobs here: <a href="check.php" target="_blank">Click Here</a></p>
 		</div>
 		<div class="box">
 			<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">

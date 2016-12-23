@@ -36,7 +36,7 @@
 				mkdir($savePath.'/noapnonce', 0777, true);
 			}
 			
-			$cmd  = "./tsschecker";
+			$cmd  = "./bin/tsschecker";
 			$cmd .= " -d ".escapeshellarg($deviceInfo['deviceIdentifier']);
 			$cmd .= " -e ".escapeshellarg($deviceInfo['deviceECID']);
 			$cmd .= " -i ".escapeshellarg($currentFirmware['version']);
@@ -51,7 +51,7 @@
 					mkdir($savePath.'/apnonce-'.$currentApnonce, 0777, true);
 				}
 				
-				$cmd  = "./tsschecker";
+				$cmd  = "./bin/tsschecker";
 				$cmd .= " -d ".escapeshellarg($deviceInfo['deviceIdentifier']);
 				$cmd .= " -e ".escapeshellarg($deviceInfo['deviceECID']);
 				$cmd .= " -i ".escapeshellarg($currentFirmware['version']);

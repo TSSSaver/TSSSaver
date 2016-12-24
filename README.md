@@ -19,9 +19,10 @@ Preview: https://tsssaver.1conan.com
 - MySQL/MariaDB
 - PHP 5.5+ (7+ Recommended)
 - PHP-MySQLi
-- Cron (Optional)
+- shell_exec() and exec()
 - TSSChecker
 - Linux (Debian or debian derivatives)
+- Cron (Optional)
 
 #Installation
 1. Download all the files in your web root.<br>
@@ -35,20 +36,21 @@ Preview: https://tsssaver.1conan.com
 9. Rename img4tool_linux to img4tool then move to bin/<br>
 10. Done :) <br>
 <br>
-(optional)
+<br>
+(optional)<br>
 Set cron to run cron.php on your preferred interval.<br>
 For every 12am
 ```
 0 0 * * * cd /path/to/your/web/root && php cron.php
 ```
-
-(optional)
+<br>
+(optional)<br>
 Change theme:<br>
 1. Remove rename style.css to style-white.css<br>
 2. Rename style-black.css to style.css<br>
-
-(optional)
-Save to dropbox
+<br>
+(optional)<br>
+Save to dropbox<br>
 1. Get an APP Key from dropbox.<br>
 2. Replace "YOUR_APP_KEY" in /index/footer.html with your key
 

@@ -33,10 +33,10 @@
 	unset($database);
 	
 	$countSavedDevices = count($savedDevices);
-	echo $countSavedDevices."\n";
+	echo "Total ECIDs: ".$countSavedDevices."\n";
 	for($i = 0; $i < $countSavedDevices; $i++) {
-		echo $i."\n";
 		$deviceInfo = $savedDevices[$i];
+		echo "Current ECID: ".$deviceInfo['deviceECID']."\n";
 		
 		$firmwares = $data['devices'][$deviceInfo['deviceIdentifier']]['firmwares'];
 		$countFirmwares = count($firmwares);
@@ -67,6 +67,7 @@
 			$cmd .= " --buildid ".escapeshellarg($currentFirmware['buildid']);
 			$cmd .= " -s ";
 			$cmd .= "--save-path ".$savePath.'/noapnonce';
+			echo "Running: ".$cmd."\n";
 			shell_exec($cmd);
 			
 			for($b = 0; $b < $countApnonce; $b++) {
@@ -84,6 +85,7 @@
 				$cmd .= " -s";
 				$cmd .= " --apnonce ".$currentApnonce;
 				$cmd .= " --save-path ".$savePath.'/apnonce-'.$currentApnonce.'';
+				echo "Running: ".$cmd."\n";
 				shell_exec($cmd);
 			}
 		}

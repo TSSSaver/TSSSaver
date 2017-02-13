@@ -40,8 +40,8 @@
 		
 		$firmwares = $data['devices'][$deviceInfo['deviceIdentifier']]['firmwares'];
 		$countFirmwares = count($firmwares);
-		for($i = 0; $i < $countFirmwares; $i++) {
-			$current = $firmwares[$i];
+		for($y = 0; $y < $countFirmwares; $y++) {
+			$current = $firmwares[$y];
 			if($current['signed'] == true)
 				$firmware[] = $current;
 		}

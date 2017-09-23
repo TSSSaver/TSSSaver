@@ -3,7 +3,7 @@ An online interface/frontend for TSSChecker.<br>
 Pretty crappy code as of now<br><br>
 Licensed under MIT License. Yes, yes, it is licensed under MIT License.<br>
 Exceptions in the licensing:<br>
-@jakeajames (twitter) or "Arshia Shojaian" is not allowed to use any of the code here.
+@Jakeashacks (twitter) or "Jake James" is not allowed to use any of the code here.
 
 Preview: https://tsssaver.1conan.com
 

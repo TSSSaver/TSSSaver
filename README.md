@@ -7,7 +7,7 @@ Exceptions in the licensing:<br>
 
 Preview: https://tsssaver.1conan.com
 
-#Features
+# Features
 - Automated
 - Download to ZIP
 - Save to Google Drive
@@ -17,7 +17,7 @@ Preview: https://tsssaver.1conan.com
 - No web frameworks for speedy loading
 - Two themes (by <a href="https://www.reddit.com/user/MareddySaiKiran">/u/MareddySaiKiran</a>)
 
-#Requirements
+# Requirements
 - MySQL/MariaDB
 - PHP 5.5+ (7+ Recommended)
 - PHP-MySQLi
@@ -26,7 +26,7 @@ Preview: https://tsssaver.1conan.com
 - Linux (Debian or debian derivatives)
 - Cron (Optional)
 
-#Installation
+# Installation
 1. Download all the files in your web root.<br>
 2. Import devices.sql to MySQL/MariaDB. (phpMyAdmin or CLI)
 3. Modify inc/config.sample.php to your preferences<br>
@@ -56,7 +56,7 @@ Save to dropbox<br>
 1. Get an APP Key from dropbox.<br>
 2. Replace "YOUR_APP_KEY" in /index/footer.html with your key
 
-#How to get the auto index stuff
+# How to get the auto index stuff
 I used nginx with fancyindex module for that. Here is the config for it. 
 ```
 location /shsh {
@@ -70,7 +70,7 @@ location /shsh {
 }
 ```
 
-#License
+# License
 
 MIT License
 

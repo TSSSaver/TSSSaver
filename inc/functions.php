@@ -32,8 +32,8 @@
 				mkdir($savePath, 0777, true);
 			}
 			
-			if (!file_exists($savePath.'/noapnonce')) {
-				mkdir($savePath.'/noapnonce', 0777, true);
+			if (!file_exists($savePath.'/randomapnonce')) {
+				mkdir($savePath.'/randomapnonce', 0777, true);
 			}
 			
 			$cmd  = "./bin/tsschecker";
@@ -41,7 +41,7 @@
 			$cmd .= " -e ".escapeshellarg($deviceInfo['deviceECID']);
 			$cmd .= " -i ".escapeshellarg($currentFirmware['version']);
 			$cmd .= " --buildid ".escapeshellarg($currentFirmware['buildid']);
-			$cmd .= " --save-path ".$savePath.'/noapnonce';
+			$cmd .= " --save-path ".$savePath.'/randomapnonce';
 			$cmd .= " -s";
 			shell_exec($cmd);
 			

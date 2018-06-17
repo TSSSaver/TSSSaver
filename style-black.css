@@ -2,10 +2,11 @@
 	* https://www.reddit.com/u/MareddySaiKiran
 */
 * {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+	-moz-box-sizing    : border-box;
+	-webkit-box-sizing : border-box;
+	box-sizing         : border-box;
 }
+
 a,
 abbr,
 acronym,
@@ -87,104 +88,115 @@ u,
 ul,
 var,
 video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
+	margin         : 0;
+	padding        : 0;
+	border         : 0;
+	font           : inherit;
+	vertical-align : baseline;
 }
+
 body {
-    background: #000;
-    font-family: 'Open Sans', sans-serif;
+	background  : #000000;
+	font-family : 'Open Sans', sans-serif;
 }
+
 .box {
-    width: 500px;
-    height: auto;
-    background: #101010;
-    margin: 10px auto;
-    border-radius: 4px;
-    transition: .2s ease-in;
-    padding: 20px;
+	width         : 500px;
+	height        : auto;
+	background    : #363636;
+	margin        : 10px auto;
+	border-radius : 4px;
+	transition    : .2s ease-in;
+	padding       : 20px;
 }
+
 input,
 select {
-    background: #1A1A1A;
+	background : #1A1A1A;
 }
+
 .note,
 p {
-    padding: 5px;
+	padding : 5px;
 }
+
 p {
-    font-size: 12px;
-    color: #656565;
+	font-size : 12px;
+	color     : #B1B1B1;
 }
+
 .note {
-    font-weight: 600;
-    color: #FFF!important;
+	font-weight : 600;
+	color       : #FFFFFF !important;
 }
+
 .title {
-    padding: 5px 5px 0;
-    font-size: 28px;
-    font-weight: 100;
-    color: #FFF;
+	padding     : 5px 5px 0;
+	font-size   : 28px;
+	font-weight : 100;
+	color       : #FFFFFF;
 }
+
 .author,
 input {
-    font-size: 12px;
+	font-size : 12px;
 }
+
 .author {
-    padding: 0 5px 5px;
-    text-decoration: none!important;
-    color: #656565;
+	padding         : 0 5px 5px;
+	text-decoration : none !important;
+	color           : #B1B1B1;
 }
+
 .button,
 input {
-    color: #FFF!important;
-    border: none!important;
-    padding: 7px;
-    border-radius: 2px;
+	color         : #FFFFFF !important;
+	border        : none !important;
+	padding       : 7px;
+	border-radius : 2px;
 }
+
 select {
-    padding: 5px;
-    border: none!important;
-    border-radius: 2px;
+	padding       : 5px;
+	border        : none !important;
+	border-radius : 2px;
 }
+
 .button {
-    background: #000!important;
-    padding: 10px!important;
-    border-radius: 2px!important;
-    cursor: pointer!important;
-    border: 0!important;
-    -webkit-appearance: none;
+	background         : #000000 !important;
+	padding            : 10px !important;
+	border-radius      : 2px !important;
+	cursor             : pointer !important;
+	border             : 0 !important;
+	-webkit-appearance : none;
 }
+
 .rc-anchor-light {
-    background: #101010;
-    color: #fff;
+	background : #101010;
+	color      : #FFFFFF;
 }
-@media all and (max-width: 768px),
-only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px),
-only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px),
-only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px),
-only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px),
-only screen and (min-resolution: 192dpi) and (max-width: 1024px),
-only screen and (min-resolution: 2dppx) and (max-width: 1024px),
-only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-    .box,
-    body {
-        width: 100%;
-    }
-    body {
-        padding: 10px;
-    }
+
+@media all and (max-width : 768px), only screen and (-webkit-min-device-pixel-ratio : 2) and (max-width : 1024px), only screen and (min--moz-device-pixel-ratio : 2) and (max-width : 1024px), only screen and (-o-min-device-pixel-ratio : 2/1) and (max-width : 1024px), only screen and (min-device-pixel-ratio : 2) and (max-width : 1024px), only screen and (min-resolution : 192dpi) and (max-width : 1024px), only screen and (min-resolution : 2dppx) and (max-width : 1024px), only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+	.box,
+	body {
+		width : 100%;
+	}
+	
+	body {
+		padding : 10px;
+	}
 }
+
 a {
-    color: white;
-    text-decoration: none;
-	font-weight: 600;
+	color           : white;
+	text-decoration : none;
+	font-weight     : 600;
 }
+
 option {
-    color: white;
+	color : white;
 }
+
 select {
-    color: white;
+	color : white;
 }

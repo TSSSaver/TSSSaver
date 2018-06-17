@@ -7,3 +7,4 @@
 /tsschecker
 !/shsh/index.php
 !/shsh/download.php
+/cron_win.php

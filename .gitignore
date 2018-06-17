@@ -3,3 +3,6 @@
 
 ##APP
 /inc/config.php
+/shsh/*
+!/shsh/index.php
+!/shsh/download.php

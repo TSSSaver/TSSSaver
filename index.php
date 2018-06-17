@@ -4,22 +4,22 @@
 	* Author: 1Conan
 	* License: MIT
 	*/
-	
+
 	require_once 'inc/medoo.php';
 	require_once 'inc/config.php';
 	require_once 'inc/functions.php';
-	
-	
-	
+
+
+
 	if(isset($_POST['submit'])) {
 		if($reCaptcha['enabled'] == true) {
 			if (!isset($_POST['g-recaptcha-response'])) {
 				err("Captcha Error!");
 			}
-			
+
 			$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$reCaptcha['privateKey']."&response=".$_POST['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
 			$response2 = json_decode($response, true);
-			
+
 			if($response2['success'] == false){
 				err("Captcha Error!");
 			}
@@ -37,7 +37,7 @@
 				err("Invalid ECID! (DEC)");
 			}
 		}
-		
+
 		if($_POST['deviceType'] == "iPhone") {
 			$deviceType = "iPhone";
 		} else if($_POST['deviceType'] == "iPod") {
@@ -50,7 +50,7 @@
             err("Invalid Device Type!");
         }
         $deviceModelList = json_decode(file_get_contents('json/deviceModels.json'), true);
-        
+
         $deviceIdentifier = $deviceModelList[$deviceType][$_POST['deviceModel']];
 
 		$deviceInfo = array(
@@ -63,9 +63,9 @@
 		if(!in_array($deviceInfo['deviceIdentifier'], $deviceList)){
 			err("Device Identifier not recognized! ".$deviceIdentifier);
 		}
-		
-		
-		
+
+
+
 		$database = new medoo([
 				'database_type' => 'mysql',
 				'database_name' => $db['name'],
@@ -77,35 +77,35 @@
 		$result = $database->select($db['table'], 'deviceECID', [
 				'deviceECID' => $deviceECID
 			]);
-		
+
 		$url = $savedSHSHURL.$deviceECID;
-		
+
 		if(count($result) > 0) {
 			saveBlobs($deviceInfo, $apnonce, $signedVersionsURL);
-			
+
 			die("<center>Device identifier already added! (Force download starting.) <br><a href='".$url."'>".$url."</a></center>");
 		}
-		
+
 		if (!file_exists('shsh/'.$deviceECID)) {
 			mkdir('shsh/'.$deviceECID, 0777, true);
 		}
-		
+
 		$database->insert($db['table'], $deviceInfo);
-		
+
 		saveBlobs($deviceInfo, $apnonce, $signedVersionsURL);
-		
+
 		exit("<center>Done saving ECID!<br>SHSH blobs will be saved in <a href='".$url."'>".$url."</a></center>");
 	}
-	
+
 	if(isset($_POST['delete'])) {
 		if($reCaptcha['enabled'] == true) {
 			if (!isset($_POST['g-recaptcha-response'])) {
 				err("Captcha Error!");
 			}
-			
+
 			$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$reCaptcha['privateKey']."&response=".$_POST['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
 			$response2 = json_decode($response, true);
-			
+
 			if($response2['success'] == false){
 				err("Captcha Error!");
 			}
@@ -131,7 +131,7 @@
 				'password' => $db['password'],
 				'charset' => 'utf8'
 			]);
-		
+
 		$result = $database->select($db['table'], 'deviceECID', [
 				'deviceECID' => $deviceECID
 			]);
@@ -151,7 +151,11 @@
 	<head>
 		<title>TSS Saver</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		<link rel="stylesheet" href="style.css">
+		<?php if( $blackStyle ): ?>
+			<link rel="stylesheet" href="style-black.css">
+		<?php else: ?>
+			<link rel="stylesheet" href="style.css">
+		<?php endif; ?>
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800" rel="stylesheet">
 	</head>
 	<body>
@@ -209,13 +213,13 @@
 					<option value="21">iPhone 7 Plus (GSM)</option>
 				</select>
 				<br><br>
-				<?php 
+				<?php
 					if($reCaptcha['enabled'] == true) {
 						echo '<div id="recaptcha1"></div><br>';
 					}
 				?>
 				<input class="button" type="submit" value="Submit" name="submit">
-			</form>  
+			</form>
 		</div>
 		<div class="box">
 			<h1 class="note">Lost your link? </h1>
@@ -234,7 +238,7 @@
 							<option value="1">Dec</option>
 				</select>
 				<input type="text" placeholder="Type ECID Here..." name="ECID" style="width:70%"><br><br>
-				<?php 
+				<?php
 						if($reCaptcha['enabled'] == true) {
 							echo '<div id="recaptcha2"></div><br>';
 						}
@@ -287,10 +291,10 @@
                         child.appendChild(text);
                         deviceModel.appendChild(child);
                     }
-					
+
 				}
 		</script>
-		<?php 
+		<?php
 			if($reCaptcha['enabled'] == true) {
 				?>
 					<script src="https://www.google.com/recaptcha/api.js?onload=myCallBack&render=explicit" defer></script>

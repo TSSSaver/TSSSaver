@@ -165,11 +165,6 @@
 			<p class="author">Theme by <a href="https://www.reddit.com/user/MareddySaiKiran">/u/MareddySaiKiran</a></p>
 			</div>
 		<div class="box">
-			<h1 class="note">Note : </h1>
-			<p>&#8226; Reddit thread + tutorial: <a href="https://redd.it/5ivapw" target="_blank">Click Here</a></p>
-			<p>&#8226; Verify blobs here: <a href="check.php" target="_blank">Click Here</a></p>
-		</div>
-		<div class="box">
 			<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
 			<h1 class="note">ECID : </h1>
 			    <div class="inputGroup">
@@ -245,6 +240,11 @@
 				?>
 				<input class="button" type="submit" name="delete" value="Delete ECID!" style="width:100%">
 			</form>
+		</div>
+		<div class="box">
+			<h1 class="note">Note : </h1>
+			<p>&#8226; Reddit thread + tutorial: <a href="https://redd.it/5ivapw" target="_blank">Click Here</a></p>
+			<p>&#8226; Verify blobs here: <a href="check.php" target="_blank">Click Here</a></p>
 		</div>
 		<p style="text-align:center;">Copyright &copy; 1Conan, 2016</p>
 		<p style="text-align:center;"><a href="https://github.com/1Conan/TSSSaver">TSS Savver</a> is licensed under <a href="LICENSE">MIT License</a></p>

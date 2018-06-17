@@ -4,5 +4,6 @@
 ##APP
 /inc/config.php
 /shsh/*
+/tsschecker
 !/shsh/index.php
 !/shsh/download.php

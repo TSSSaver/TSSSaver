@@ -62,13 +62,14 @@
 				mkdir( $savePath.'/noapnonce', 0777, TRUE );
 			}
 
-			$cmd = "./tsschecker";
+			$cmd = $tssCheckerPath;
 			$cmd .= " -d ".escapeshellarg( $deviceInfo[ 'deviceIdentifier' ] );
 			$cmd .= " -e ".escapeshellarg( $deviceInfo[ 'deviceECID' ] );
 			$cmd .= " -i ".escapeshellarg( $currentFirmware[ 'version' ] );
 			$cmd .= " --buildid ".escapeshellarg( $currentFirmware[ 'buildid' ] );
 			$cmd .= " -s ";
 			$cmd .= "--save-path ".$savePath.'/noapnonce';
+
 			echo "Running: ".$cmd."\n";
 			shell_exec( $cmd );
 
@@ -79,14 +80,15 @@
 					mkdir( $savePath.'/apnonce-'.$currentApnonce, 0777, TRUE );
 				}
 
-				$cmd = "./tsschecker ";
-				$cmd .= "-d ".escapeshellarg( $deviceInfo[ 'deviceIdentifier' ] );
+				$cmd = $tssCheckerPath;
+				$cmd .= " -d ".escapeshellarg( $deviceInfo[ 'deviceIdentifier' ] );
 				$cmd .= " -e ".escapeshellarg( $deviceInfo[ 'deviceECID' ] );
 				$cmd .= " -i ".escapeshellarg( $currentFirmware[ 'version' ] );
 				$cmd .= " --buildid ".escapeshellarg( $currentFirmware[ 'buildid' ] );
 				$cmd .= " -s";
 				$cmd .= " --apnonce ".$currentApnonce;
 				$cmd .= " --save-path ".$savePath.'/apnonce-'.$currentApnonce.'';
+
 				echo "Running: ".$cmd."\n";
 				shell_exec( $cmd );
 			}

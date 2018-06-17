@@ -7,6 +7,9 @@
 	$serverURL    = "https://tsssaver.1conan.com/"; //your server url ;https://tsssaver.1conan.com/
 	$savedSHSHURL = $serverURL."shsh/";
 
+	$tssCheckerPath
+		= "./tsschecker"; //path to tsschecker executable https://github.com/tihmstar/tsschecker/releases ;./tsschecker
+
 	$blackStyle = TRUE; //true|false ;use black style layout
 
 	$reCaptcha[ 'enabled' ]    = FALSE; //true|false ;enabled/disable recaptcha

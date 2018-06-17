@@ -1,4 +1,4 @@
 <?php
-	header('Location: /');
+	header( 'Location: /' );
 ?>
 Be careful little eyes.

@@ -1,12 +1,14 @@
 .note,
 input {
-    color: #000!important
+	color : #000000 !important
 }
+
 * {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box
+	-moz-box-sizing    : border-box;
+	-webkit-box-sizing : border-box;
+	box-sizing         : border-box
 }
+
 a,
 abbr,
 acronym,
@@ -88,86 +90,93 @@ u,
 ul,
 var,
 video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline
+	margin         : 0;
+	padding        : 0;
+	border         : 0;
+	font           : inherit;
+	vertical-align : baseline
 }
+
 body {
-    background: #EEE;
-    font-family: 'Open Sans', sans-serif;
-    margin-top: 20px
+	background  : #EEEEEE;
+	font-family : 'Open Sans', sans-serif;
+	margin-top  : 20px
 }
+
 .box {
-    width: 500px;
-    height: auto;
-    background: #FFF;
-    margin: 5px auto 0;
-    border-radius: 4px;
-    box-shadow: 0 1px 1px 0 #c3c3c3!important;
-    -webkit-box-shadow: 0 1px 1px 0 #c3c3c3!important;
-    transition: .2s ease-in;
-    padding: 20px
+	width              : 500px;
+	height             : auto;
+	background         : #FFFFFF;
+	margin             : 5px auto 0;
+	border-radius      : 4px;
+	box-shadow         : 0 1px 1px 0 #C3C3C3 !important;
+	-webkit-box-shadow : 0 1px 1px 0 #C3C3C3 !important;
+	transition         : .2s ease-in;
+	padding            : 20px
 }
+
 .note,
 p {
-    padding: 5px
+	padding : 5px
 }
+
 .banner {
-    height: 100px
+	height : 100px
 }
+
 p {
-    font-size: 12px;
-    color: #454545
+	font-size : 12px;
+	color     : #454545
 }
+
 .note {
-    font-weight: 600
+	font-weight : 600
 }
+
 .title {
-    padding: 5px 5px 0;
-    font-size: 28px;
-    font-weight: 100
+	padding     : 5px 5px 0;
+	font-size   : 28px;
+	font-weight : 100
 }
+
 .author {
-    padding: 0 5px 5px
+	padding : 0 5px 5px
 }
+
 input {
-    border: 2px solid;
-    background: #fff;
-    padding: 5px;
-    font-size: 12px;
-    border-radius: 2px
+	border        : 2px solid;
+	background    : #FFFFFF;
+	padding       : 5px;
+	font-size     : 12px;
+	border-radius : 2px
 }
+
 select {
-    padding: 5px;
-    border: 2px solid #000
+	padding : 5px;
+	border  : 2px solid #000000
 }
+
 .button {
-    background: #000!important;
-    color: #FFF!important;
-    padding: 10px!important;
-    border-radius: 2px!important;
-    cursor: pointer!important;
-    border: 0!important
+	background    : #000000 !important;
+	color         : #FFFFFF !important;
+	padding       : 10px !important;
+	border-radius : 2px !important;
+	cursor        : pointer !important;
+	border        : 0 !important
 }
-@media all and (max-width: 768px),
-only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px),
-only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px),
-only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px),
-only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px),
-only screen and (min-resolution: 192dpi) and (max-width: 1024px),
-only screen and (min-resolution: 2dppx) and (max-width: 1024px),
-only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-    body {
-        width: 100%
-    }
-    .box {
-        width: 95%
-    }
+
+@media all and (max-width : 768px), only screen and (-webkit-min-device-pixel-ratio : 2) and (max-width : 1024px), only screen and (min--moz-device-pixel-ratio : 2) and (max-width : 1024px), only screen and (-o-min-device-pixel-ratio : 2/1) and (max-width : 1024px), only screen and (min-device-pixel-ratio : 2) and (max-width : 1024px), only screen and (min-resolution : 192dpi) and (max-width : 1024px), only screen and (min-resolution : 2dppx) and (max-width : 1024px), only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+	body {
+		width : 100%
+	}
+	
+	.box {
+		width : 95%
+	}
 }
+
 a {
-    color: white;
-    text-decoration: none;
-	font-weight: 600;
+	color           : white;
+	text-decoration : none;
+	font-weight     : 600;
 }

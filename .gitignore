@@ -1,0 +1,5 @@
+##ENV
+.idea
+
+##APP
+/inc/config.php

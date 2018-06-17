@@ -4,68 +4,69 @@
 	* Author: 1Conan
 	* License: MIT
 	*/
-	
-	function saveBlobs($deviceInfo, $apnonce, $signedVersionsURL) {
-		$countApnonce = count($apnonce);  
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_URL,$signedVersionsURL);
-		$result = curl_exec($ch);
-		curl_close($ch);
-		$data = json_decode($result, true);
-		
-		$firmwares = $data['devices'][$deviceInfo['deviceIdentifier']]['firmwares'];
-		$countFirmwares = count($firmwares);
-		for($i = 0; $i < $countFirmwares; $i++) {
-			$current = $firmwares[$i];
-			if($current['signed'] == true)
+
+	function saveBlobs( $deviceInfo, $apnonce, $signedVersionsURL ) {
+		$countApnonce = count( $apnonce );
+		$ch           = curl_init();
+		curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, FALSE );
+		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, TRUE );
+		curl_setopt( $ch, CURLOPT_URL, $signedVersionsURL );
+		$result = curl_exec( $ch );
+		curl_close( $ch );
+		$data = json_decode( $result, TRUE );
+
+		$firmwares      = $data[ 'devices' ][ $deviceInfo[ 'deviceIdentifier' ] ][ 'firmwares' ];
+		$countFirmwares = count( $firmwares );
+		for( $i = 0; $i < $countFirmwares; $i++ ) {
+			$current = $firmwares[ $i ];
+			if( $current[ 'signed' ] == TRUE ) {
 				$firmware[] = $current;
+			}
 		}
-		
-		$countFirmware = count($firmware);
-		for($a = 0; $a < $countFirmware; $a++) {
-			
-			$currentFirmware = $firmware[$a];
-			$savePath = 'shsh/'.$deviceInfo['deviceECID'].'/'.$currentFirmware['version'];
-			if (!file_exists($savePath)) {
-				mkdir($savePath, 0777, true);
+
+		$countFirmware = count( $firmware );
+		for( $a = 0; $a < $countFirmware; $a++ ) {
+
+			$currentFirmware = $firmware[ $a ];
+			$savePath        = 'shsh/'.$deviceInfo[ 'deviceECID' ].'/'.$currentFirmware[ 'version' ];
+			if( !file_exists( $savePath ) ) {
+				mkdir( $savePath, 0777, TRUE );
 			}
-			
-			if (!file_exists($savePath.'/randomapnonce')) {
-				mkdir($savePath.'/randomapnonce', 0777, true);
+
+			if( !file_exists( $savePath.'/randomapnonce' ) ) {
+				mkdir( $savePath.'/randomapnonce', 0777, TRUE );
 			}
-			
-			$cmd  = "./bin/tsschecker";
-			$cmd .= " -d ".escapeshellarg($deviceInfo['deviceIdentifier']);
-			$cmd .= " -e ".escapeshellarg($deviceInfo['deviceECID']);
-			$cmd .= " -i ".escapeshellarg($currentFirmware['version']);
-			$cmd .= " --buildid ".escapeshellarg($currentFirmware['buildid']);
+
+			$cmd = "./bin/tsschecker";
+			$cmd .= " -d ".escapeshellarg( $deviceInfo[ 'deviceIdentifier' ] );
+			$cmd .= " -e ".escapeshellarg( $deviceInfo[ 'deviceECID' ] );
+			$cmd .= " -i ".escapeshellarg( $currentFirmware[ 'version' ] );
+			$cmd .= " --buildid ".escapeshellarg( $currentFirmware[ 'buildid' ] );
 			$cmd .= " --save-path ".$savePath.'/randomapnonce';
 			$cmd .= " -s";
-			shell_exec($cmd);
-			
-			for($b = 0; $b < $countApnonce; $b++) {
-				$currentApnonce = $apnonce[$b];
-				if (!file_exists($savePath.'/apnonce-'.$currentApnonce)) {
-					mkdir($savePath.'/apnonce-'.$currentApnonce, 0777, true);
+			shell_exec( $cmd );
+
+			for( $b = 0; $b < $countApnonce; $b++ ) {
+				$currentApnonce = $apnonce[ $b ];
+				if( !file_exists( $savePath.'/apnonce-'.$currentApnonce ) ) {
+					mkdir( $savePath.'/apnonce-'.$currentApnonce, 0777, TRUE );
 				}
-				
-				$cmd  = "./bin/tsschecker";
-				$cmd .= " -d ".escapeshellarg($deviceInfo['deviceIdentifier']);
-				$cmd .= " -e ".escapeshellarg($deviceInfo['deviceECID']);
-				$cmd .= " -i ".escapeshellarg($currentFirmware['version']);
-				$cmd .= " --buildid ".escapeshellarg($currentFirmware['buildid']);
+
+				$cmd = "./bin/tsschecker";
+				$cmd .= " -d ".escapeshellarg( $deviceInfo[ 'deviceIdentifier' ] );
+				$cmd .= " -e ".escapeshellarg( $deviceInfo[ 'deviceECID' ] );
+				$cmd .= " -i ".escapeshellarg( $currentFirmware[ 'version' ] );
+				$cmd .= " --buildid ".escapeshellarg( $currentFirmware[ 'buildid' ] );
 				$cmd .= " --apnonce ".$currentApnonce;
 				$cmd .= " --save-path ".$savePath.'/apnonce-'.$currentApnonce;
 				$cmd .= " -s ";
-				
-				shell_exec($cmd);
+
+				shell_exec( $cmd );
 			}
 		}
 	}
-	
-	function err($error) {
+
+	function err( $error ) {
 		$html = "<!DOCTYPE html>";
 		$html .= "<html>";
 		$html .= "<head>";
@@ -84,6 +85,7 @@
 		$html .= "</div>";
 		$html .= "</body>";
 		$html .= "</html>";
-		die($html);
+		die( $html );
 	}
+
 ?>

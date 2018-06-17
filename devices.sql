@@ -1,6 +1,10 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
+CREATE DATABASE IF NOT EXISTS tsssaver;
+
+USE tsssaver;
+
 CREATE TABLE `devices` (
   `deviceIdentifier` text NOT NULL,
   `deviceType` text NOT NULL,

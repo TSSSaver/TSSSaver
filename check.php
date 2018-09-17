@@ -84,7 +84,7 @@
 		</head>
 	<body>
 		<div class="box">
-			<h1 class="title"><span style="font-weight:600;">iOS 10 SHSH2</span> Blobs Checker</h1>
+			<h1 class="title"><span style="font-weight:600;">iOS 10.x/11.x SHSH2</span> Blobs Checker</h1>
 			<p class="author">by <a href="https://www.reddit.com/user/1Conan/">/u/1Conan</a></p>
 			<p class="author">Theme by <a href="https://www.reddit.com/user/MareddySaiKiran">/u/MareddySaiKiran</a></p>
 			</div>
@@ -106,7 +106,7 @@
 				<input class="button" type="submit" value="Submit" name="submit" style="width:100%">
 			</form>  
 		</div>
-		<p style="text-align:center;">Copyright &copy; 1Conan, 2016</p>
+		<p style="text-align:center;">Copyright &copy; 1Conan, 2018</p>
 		<p style="text-align:center;"><a href="https://github.com/1Conan/TSSSaver">TSS Saver</a> is licensed under MIT</p>
 		<?php 
 			if($reCaptcha['enabled'] == true) {
